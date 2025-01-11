@@ -7,18 +7,19 @@ type Props = {
   handleUrlChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleEnableLink: (socialNetwork: string) => void;
 };
-
+const icon = (item: DevTreeLink) => `/social/icon_${item.name}.svg`;
 function DevTreeInput({ item, handleUrlChange, handleEnableLink }: Props) {
   return (
     <div className="bg-white shadow-sm p-5 flex items-center gap-3">
-      <div
-        className="w-12 h-12 bg-cover"
-        style={{ backgroundImage: `url('/social/icon_${item.name}.svg')` }}
-      ></div>
+      <img
+        className="w-12 h-12 object-cover"
+        src={icon(item)}
+        alt={item.name}
+      ></img>
 
       <input
         type="text"
-        className="flex-1 border border-gray-100 rounded-lg"
+        className="flex-grow w-full min-w-0 border border-gray-100 rounded-lg"
         value={item.url || ""}
         onChange={handleUrlChange}
         name={item.name}
