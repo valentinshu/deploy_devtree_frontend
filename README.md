@@ -82,7 +82,7 @@
 
 ## Demo en línea
 
-Prueba DevTree en: [DevTree](https://app.netlify.com/sites/steady-crisp-eb88b8/overview) *(Reemplaza con el enlace real si ya está desplegado)*.
+Prueba DevTree en: [DevTree](https://steady-crisp-eb88b8.netlify.app/) *(Reemplaza con el enlace real si ya está desplegado)*.
 
 ---
 
