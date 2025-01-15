@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+# DevTree - Desarrollo Full Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**DevTree** es un sitio web diseñado para centralizar y gestionar redes sociales desde un perfil personalizado, permitiendo a los usuarios compartir sus información con otros de manera segura y eficiente.
 
-Currently, two official plugins are available:
+## Características principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. **Gestor de redes sociales**: Los usuarios pueden agregar, editar y compartir sus redes sociales activas desde su perfil.
+2. **Perfiles personalizados**: Cada usuario cuenta con un perfil único que puede gestionar fácilmente.
+3. **Seguridad avanzada**:
+   - Autenticación con identificadores únicos firmados digitalmente (JWT).
+   - Contraseñas cifradas con bcrypt.
+   - Rutas protegidas para garantizar la seguridad de las funcionalidades.
+4. **Diseño responsivo**: Adaptado para ofrecer una experiencia óptima en dispositivos móviles y de escritorio.
+5. **Rendimiento optimizado**: Implementación de patrones como Optimistic UI para mejorar la interacción del usuario.
 
-## Expanding the ESLint configuration
+## Tecnologías utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Frontend
+- **React**: Creación de interfaces de usuario.
+- **TypeScript**: Tipado estático para un código más seguro y mantenible.
+- **Axios y React Query**: Manejo eficiente de peticiones a la API.
+- **React Router**: Navegación entre rutas.
+- **Sonner**: Sistema de notificaciones.
+- **Tailwind CSS**: Estilos modernos y responsivos.
 
-- Configure the top-level `parserOptions` property like this:
+### Backend
+- **Node.js y Express**: Creación del servidor y manejo de la lógica de negocio.
+- **TypeScript**: Mejora en la robustez y escalabilidad del código.
+- **MongoDB y Mongoose**: Almacenamiento y manejo de la información de los usuarios.
+- **JsonWebToken (JWT)**: Autenticación segura.
+- **bcrypt**: Cifrado de contraseñas.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Arquitectura
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. **Base de datos**
+   - Diseñada para almacenar información de los usuarios, incluyendo datos de perfil y redes sociales.
+   - Validaciones y saneamiento de datos para garantizar integridad y seguridad.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. **API**
+   - Manejo eficiente de solicitudes entre la interfaz y la base de datos.
+   - Enfoque en la seguridad mediante autenticación y cifrado.
+   - Operaciones optimizadas para reducir el movimiento innecesario de datos.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. **Sitio web**
+   - Interfaz clara y atractiva para presentar información obtenida desde la API.
+   - Diseño centrado en la experiencia del usuario.
+
+## Instalación y uso
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/devtree.git
+   cd devtree
+   ```
+
+2. Instala las dependencias del frontend y backend:
+   ```bash
+   cd frontend
+   npm install
+   cd ../backend
+   npm install
+   ```
+
+3. Configura las variables de entorno en el archivo `.env` en la carpeta del backend:
+   ```env
+   MONGO_URI=tu_url_de_mongo
+   JWT_SECRET=tu_secreto_para_jwt
+   ```
+
+4. Inicia el servidor del backend:
+   ```bash
+   npm run dev
+   ```
+
+5. Inicia el servidor del frontend:
+   ```bash
+   cd ../frontend
+   npm run dev
+   ```
+
+6. Abre tu navegador en [http://localhost:5173](http://localhost:5173) para explorar DevTree.
+
+## Demo en línea
+
+Prueba DevTree en: [DevTree](https://app.netlify.com/sites/steady-crisp-eb88b8/overview) *(Reemplaza con el enlace real si ya está desplegado)*.
+
+---
+
+Si tienes comentarios o deseas contribuir, no dudes en contactarme.
+
